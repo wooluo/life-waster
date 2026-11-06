@@ -61,12 +61,15 @@ python3 app.py --host 0.0.0.0 # 局域网内手机也可访问
 
 Releases 页下载 `人生虚度记录仪.apk` 直接安装。
 
-本地构建（需 JDK 21 + Android SDK 放在上级 `tools/`，见 `mobile/build.sh` 头部说明）：
+本地构建（需 JDK 21 + Amazon Corretto / Android SDK，默认放在仓库外层同级 `tools/` 目录，或用环境变量指定）：
 
 ```bash
 cd mobile && ./build.sh
 # 产出 人生虚度记录仪.apk（正式签名版）与 虚度记录仪-debug.apk
+# 工具链不在默认位置时：LW_TOOLS_DIR=/path/to/tools ./build.sh
 ```
+
+正式签名需要 `mobile/keystore.properties`（连同 jks，均不入库；缺失时只出调试版）。
 
 ## 测试
 
